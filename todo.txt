@@ -1,0 +1,54 @@
+- (beam search)
+- test dataset on
+- boundaries instead of pixelwise labels (label background 0, boundaries 1)
+- linear layer?
+- ce loss with extra weight to boundary regions (use none reduction in ce loss)
+- (different start token (e.g. average column/arbitrary gt column))
+- look at nlp token embeddings
+- plot IoU for different layers
+
+- flip image dimensions
+x linear layer after output layers:
+    x 2 conv layers with relu + 1 linear layer
+x only linear layer
+x plot dist at different stages (x, y, out...)
+- ViT approach comparison
+- medical transformer
+- (column embeddings with vae?)
+
+Ideas:
+- momentum based sgd, lower lr
+- learnable pos encodings
+- axial attention
+- autoencoder for compressed data representation
+- pretrained transformer
+
+Training runs:
+- batch size 1, 2, 4
+- lr schedules: custom, linear/exponential, fixed
+- output layers
+- topology loss weight
+- special ce loss
+- with/without input norm
+
+- mask implementation in ViT/medical
+x augmentations (range of input varied by 10/20%, sequence length variation)
+- learnable pos encodings
+x omit pos encodings
+- miou medical
+- omit topology loss
+- medt experiments
+
+- oct augmentations (contrast)
+- test if only first column predicted
+- test trained models (e.g. flipped image)
+
+MedT:
+x include all 256x256 blocks (divide images into squares), not just cropping
+x topology loss on medt
+x varied parameters (batch size, etc.)
+x train with only 3 layer labels (omit background + middle layer from loss)
+- use validation dataset /images/innoretvision/eye/goals/GOALS2022-Validation
+- train on stretched and unstretched images
+- prepare results for submission to challenge
+- ViT
